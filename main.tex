@@ -1,0 +1,134 @@
+%---------------------------------------------------------
+%	PACKAGES AND THEMES
+%---------------------------------------------------------
+
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{makecell}
+\usepackage{svg}
+\usepackage{siunitx}
+\sisetup{
+input-symbols = {()},
+group-digits  = false,
+explicit-sign
+}
+\usepackage{graphics}
+\usepackage{pgfplots}
+\pgfplotsset{width=15cm,compat=1.13,
+            every axis/.append style={
+                    label style={font=\large} 
+                    }}
+\usepgfplotslibrary{external}
+\usepackage{pgfplotstable}
+%\tikzexternalize
+\usetikzlibrary{patterns}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,backgrounds,fit,positioning}
+\tikzset{res/.style={ellipse,draw,minimum height=0.5cm,minimum width=0.8cm}}
+\usepackage{multirow}
+
+\usepackage{wasysym}
+
+\usepackage{appendixnumberbeamer} % Restart number after appendix begins
+\renewcommand{\appendixname}{\texorpdfstring{\translate{Appendix}}{Appendix}} % Because of bug
+
+\mode<presentation> {
+\usetheme{Singapore}
+\setbeamertemplate{footline}[frame number]{} % Replaces the footer line in all slides with a simple slide count
+\setbeamertemplate{navigation symbols}{} % Removes the navigation symbols from the bottom of all slides
+}
+
+\usepackage{graphicx} % Allows including images
+
+\definecolor {processblue}{cmyk}{0.96,0,0,0}
+
+% Define indicator ...
+\DeclareSymbolFont{bbold}{U}{bbold}{m}{n}
+\DeclareSymbolFontAlphabet{\mathbbold}{bbold}
+\newcommand{\bi}{\mathbbold{1}}
+
+% Deemphasize text
+\newcommand{\light}{\textcolor{gray}}
+
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+
+\setbeamercolor{alerted text}{fg=orange}
+
+%---------------------------------------------------------
+%	TITLE PAGE
+%---------------------------------------------------------
+
+\title[Some title]{A title}
+
+\author{Author names}
+\date{A date}
+
+% Road map
+\AtBeginSection[]{%
+\bgroup\setbeamertemplate{footline}{}% Hides slide counter
+\addtocounter{framenumber}{-1}%        Doesn't add to slide counter
+\begin{frame}{Outline}%
+\tableofcontents[currentsection]%      Print ToC
+\end{frame}\egroup%
+}
+
+% Doesn't increases page counter after every pause
+\resetcounteronoverlays{page}
+
+\setlength{\parskip}{12pt} % Increases space between paragraphs
+
+\begin{document}
+
+\bgroup\setbeamertemplate{footline}{}% Hides slide counter
+\addtocounter{framenumber}{-1}
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}\egroup
+
+\section{First section}
+
+\begin{frame}{A frame}
+    
+\end{frame}
+
+\begin{frame}{Another frame}
+    
+\end{frame}
+
+\section{Second section}
+
+\begin{frame}{A frame}
+    
+\end{frame}
+
+\begin{frame}[plain, noframenumbering]
+    \begin{center}
+        \huge Thanks, the end, etc.
+    \end{center}
+\end{frame}
+
+\AtBeginSection[]{}
+\section{Appendix}
+
+\appendix
+% Appendix road map
+\AtBeginSection[]{%
+\begin{frame}{Appendix}
+\tableofcontents[currentsection] %
+\end{frame}%
+}
+
+\section{Extra: Appendix}
+
+\begin{frame}{An appendix frame}
+    
+\end{frame}
+
+\section{Appendix, part 2}
+
+\begin{frame}{Another appenix frame}
+    
+\end{frame}
+
+\end{document}
