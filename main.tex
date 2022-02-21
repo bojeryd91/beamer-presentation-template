@@ -2,16 +2,9 @@
 %	PACKAGES AND THEMES
 %---------------------------------------------------------
 
-\documentclass[aspectratio=169]{beamer}
+% https://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/beamer-contrib/themes/metropolis/doc/metropolistheme.pdf
+\documentclass[aspectratio=169, 11pt]{beamer}
 
-\usepackage{makecell}
-\usepackage{svg}
-\usepackage{siunitx}
-\sisetup{
-input-symbols = {()},
-group-digits  = false,
-explicit-sign
-}
 \usepackage{graphics}
 \usepackage{pgfplots}
 \pgfplotsset{width=15cm,compat=1.13,
@@ -20,28 +13,24 @@ explicit-sign
                     }}
 \usepgfplotslibrary{external}
 \usepackage{pgfplotstable}
-%\tikzexternalize
 \usetikzlibrary{patterns}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,backgrounds,fit,positioning}
 \tikzset{res/.style={ellipse,draw,minimum height=0.5cm,minimum width=0.8cm}}
 \usepackage{multirow}
-
-\usepackage{wasysym}
+\usepackage{wasysym}% Adds symbols
 
 \usepackage{appendixnumberbeamer} % Restart number after appendix begins
 \renewcommand{\appendixname}{\texorpdfstring{\translate{Appendix}}{Appendix}} % Because of bug
 
-\mode<presentation> {
-\usetheme{Singapore}
-\usefonttheme{structuresmallcapsserif}
-\setbeamertemplate{footline}[frame number]{} % Replaces the footer line in all slides with a simple slide count
-\setbeamertemplate{navigation symbols}{} % Removes the navigation symbols from the bottom of all slides
-}
+\usetheme[progressbar=foot, numbering=fraction]{metropolis}
+%\setbeamertemplate{navigation symbols}{} % Removes the navigation symbols from the bottom of all slides
+
+\definecolor{darkred}{rgb}{0.8,0,0}
+\setbeamercolor{title separator}{fg=darkred}
+\setbeamercolor{alerted text}{fg=orange}
 
 \usepackage{graphicx} % Allows including images
-
-\definecolor {processblue}{cmyk}{0.96,0,0,0}
 
 % Define indicator ...
 \DeclareSymbolFont{bbold}{U}{bbold}{m}{n}
@@ -53,8 +42,6 @@ explicit-sign
 
 \newcommand{\EE}{\mathbb{E}}
 \newcommand{\PP}{\mathbb{P}}
-
-\setbeamercolor{alerted text}{fg=orange}
 
 %---------------------------------------------------------
 %	TITLE PAGE
@@ -75,17 +62,11 @@ explicit-sign
 }
 
 % Doesn't increases page counter after every pause
-\resetcounteronoverlays{page}
-
-\setlength{\parskip}{12pt} % Increases space between paragraphs
+%\resetcounteronoverlays{page}
 
 \begin{document}
 
-\bgroup\setbeamertemplate{footline}{}% Hides slide counter
-\addtocounter{framenumber}{-1}
-\begin{frame}
-\titlepage % Print the title page as the first slide
-\end{frame}\egroup
+\maketitle
 
 \section{First section}
 
@@ -93,19 +74,28 @@ explicit-sign
     
 \end{frame}
 
-\begin{frame}{Another frame}
+\begin{frame}[label=example_source]{Another frame}
+    This sentence contains an \alert{alerted} word!\pause
     
+    And a second paragraph\pause
+    
+    This is a link to the appendix. \hyperlink{app_example}{\texttt{link text}~ \beamerskipbutton{To appendix}}
 \end{frame}
 
 \section{Second section}
 
-\begin{frame}{A frame}
-    
+\begin{frame}{A frame with math}
+    \begin{equation}
+    \begin{aligned}
+        y_{i,g,t} &= \beta \times \text{treatment}_g \times \text{post}_t \\
+        &\qquad + \delta_i + \eta_t + X_{i,t} + \varepsilon_{i,g,t}.
+    \end{aligned}
+    \end{equation}
 \end{frame}
 
 \begin{frame}[plain, noframenumbering]
     \begin{center}
-        \huge Thanks, the end, etc.
+        \LARGE Thanks, the end, etc.
     \end{center}
 \end{frame}
 
@@ -123,13 +113,13 @@ explicit-sign
 \section{Extra: Appendix}
 
 \begin{frame}{An appendix frame}
-    
+    With content
 \end{frame}
 
 \section{Appendix, part 2}
 
-\begin{frame}{Another appenix frame}
-    
+\begin{frame}[label=app_example]{Another appenix frame}
+    With a button to return to the original page  \hyperlink{example_source}{\beamerskipbutton{Go back}}
 \end{frame}
 
 \end{document}
