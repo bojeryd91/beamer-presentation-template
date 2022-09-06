@@ -85,22 +85,131 @@
 
 \maketitle
 
-\section{First section}
+\section{Introduction}
 
-\begin{frame}{A frame}
+\begin{frame}{Motivation}
+    Observation 1
     
+    Observation 2
+    
+    Observation 3
 \end{frame}
 
-\begin{frame}{Another frame}
+\begin{frame}{Research question}
     \only<3->{\hypertarget{example_to_return_to1}{}}
-    This sentence contains an \alert{alerted} word!\pause
+    Main research question addressed with \alert{alerted} word!\pause
     
-    And a second paragraph\only<2->{\footnote{A footnote}}\pause
+    Supplementary research question addressed\only<2->{\footnote{A footnote}}\pause
     
-    This is a link to the appendix. \hyperlink{app_example}{\texttt{link text}~ \beamerskipbutton{To appendix}}
+    Supplementary research question addressed \hyperlink{app_example}{\texttt{link text}~ \beamerskipbutton{To appendix}}
 \end{frame}
 
-\section{Second section}
+\begin{frame}{This paper}
+    Specific issue addressed
+    
+    How you think about the issue: Model
+    \begin{itemize}
+        \item ``Idea'' of model/theoretical framework
+    \end{itemize}
+    
+    Method employed: Data
+    \begin{itemize}
+        \item ``Idea'' of identification
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Relation to literature}
+    \textbf{Motivating literature:} Paper 1, Paper 2
+    
+    Explain \emph{your} contribution w.r.t. the existing literature
+    
+    Do \emph{not} summarize others' papers
+\end{frame}
+
+\section{Model/setting}
+
+\begin{frame}{Model}
+    Give core idea of the model in words and figures
+    
+    Use the minimal number of Greek letters required to make your point\\
+    \begin{itemize}
+        \item But the model needs to be solved in the paper
+    \end{itemize}
+    
+    Make clear what insights comes out of the model and how this maps to what you will test in the data
+    
+    Your paper may prove the results for a large class of functions; but often the intuition is in a simpler case. Simplify!
+    
+    \small (If using someone's model, refer to it!)
+\end{frame}
+
+\begin{frame}{Setting}
+    This section can also be about the empirical setting you exploit
+    
+    Give the audience enough information to understand it
+    
+    Do not provide too many details (include only what is relevant for the paper)
+    
+    Especially for papers outside US:
+    \begin{itemize}
+        \item Compare with the US
+        \item Explain the differences
+        \item Make an extra effort to explain why the setting is particularly good to answer the research question
+    \end{itemize}
+\end{frame}
+
+\section{Data}
+
+\begin{frame}{Data}
+    What is the sample? What is the sampling frame?
+    
+    What is an observation in the dataset?
+    
+    Table 1: Summary statistics\\
+    \begin{itemize}
+        \item If needed, show balance across treatment and control
+        \item Means and SDs of outcome variable
+        \item Means and SDs of key regressors
+    \end{itemize}
+    
+    Any weird data issues to be aware of? (E.g., attrition?)
+\end{frame}
+
+\section{Estimation}
+
+\begin{frame}{Estimation}
+    % Make nested itemize smaller
+    \setbeamerfont*{itemize/enumerate body}{size=\fontsize{9}{8}}
+    \setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+    \setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate body}
+
+    \small
+    Empirical strategy\\
+    \begin{itemize}
+        \item Specification
+        \begin{itemize}
+            \item E.g., what regression; what moment condition
+        \end{itemize}
+        \item Identification assumption
+        \begin{itemize}
+            \item Should be in some measure of detail
+            \item Should adhere to standard techniques
+            \item A lot of seminars will get hung up here. \emph{Be very well prepared to defend specification}
+        \end{itemize}
+    \end{itemize}
+    
+    Estimation procedure\\
+    \begin{itemize}
+        \item Often will be trivial (OLS or other linear method)
+        \item Sometimes more involved
+    \end{itemize}
+    
+    Inference procedure\\
+    \begin{itemize}
+        \item Again, often trivial (clustered at location level)
+        \item Sometimes more involved (wild clustered bootstrap)
+    \end{itemize}
+\end{frame}
 
 \begin{frame}{A frame with math}
     \begin{equation}
@@ -135,6 +244,31 @@
     \end{center}
     
     Note: A note about the table above
+\end{frame}
+
+\section{Additional sections/extensions}
+
+\begin{frame}
+    This section can include lots of things
+    
+    \begin{itemize}
+        \item Theoretical/model
+        \item Empirical
+        \begin{itemize}
+            \item Robustness checks
+            \item Overidentification tests
+            \item Welfare computations
+            \item Counterfactuals
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Conclusions}
+    Reiterate what we learned
+    
+    A new research or policy question the work raises, that we could not anticipate without having done the work of reading the paper/listening to the talk
 \end{frame}
 
 \begin{frame}[plain, noframenumbering]
