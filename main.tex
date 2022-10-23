@@ -60,6 +60,12 @@
 \newcommand{\EE}{\mathbb{E}}
 \newcommand{\PP}{\mathbb{P}}
 
+\newcommand{\ToCslide}{\bgroup\setbeamertemplate{footline}{}% Hides slide counter
+\addtocounter{framenumber}{-1}%
+\begin{frame}{Outline}%
+\tableofcontents%      Print ToC
+\end{frame}\egroup}
+
 %---------------------------------------------------------
 %	TITLE PAGE
 %---------------------------------------------------------
@@ -85,7 +91,8 @@
 
 \maketitle
 
-\section{Introduction}
+{\metroset{sectionpage=none}%
+\section{Introduction}}
 
 \begin{frame}{Motivation}
     Observation 1
@@ -129,6 +136,8 @@
 \begin{frame}{Preview of findings}
     
 \end{frame}
+
+\ToCslide
 
 \section{Model/setting}
 
