@@ -75,6 +75,11 @@
 \author{Author names (comments are from Michela Giorcelli's presentation template in Western European History, 2019)}
 \date{A date}
 
+% Add bibliography
+\usepackage[style=authoryear, maxcitenames=2, uniquelist=false, uniquename=false]{biblatex}
+\addbibresource{References.bib}
+\setbeamertemplate{bibliography item}{}
+
 % Road map
 \AtBeginSection[]{%
 \bgroup\setbeamertemplate{footline}{}% Hides slide counter
@@ -149,9 +154,9 @@
         \item But the model needs to be solved in the paper
     \end{itemize}
     
-    Make clear what insights comes out of the model and how this maps to what you will test in the data
+    Make clear what insights come out of the model and how this maps to what you will test in the data
     
-    Your paper may prove the results for a large class of functions; but often the intuition is in a simpler case. Simplify!
+    Your paper may prove the results for a large class of functions, but often the intuition is in a simpler case. Simplify!
     
     \small (If using someone's model, refer to it!)
 \end{frame}
@@ -224,13 +229,15 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{A frame with math}
+\begin{frame}{A frame with math and a reference}
+    Model \parencite{article1}
     \begin{equation}
     \begin{aligned}
         y_{i,g,t} &= \beta \times \text{treatment}_g \times \text{post}_t \\
         &\qquad + \delta_i + \eta_t + X_{i,t} + \varepsilon_{i,g,t}.
     \end{aligned}
     \end{equation}
+    Another relevant citation is \cite{article2}
 \end{frame}
 
 \begin{frame}{A table}
@@ -291,9 +298,20 @@
 \end{frame}
 
 \AtBeginSection[]{}
-\section{Appendix}
+
+
+\section{References}
 
 \appendix
+
+\begin{frame}[allowframebreaks]{References}
+\begin{scriptsize}
+    \printbibliography
+\end{scriptsize}
+\end{frame}
+
+\section{Appendix}
+
 % Appendix road map
 \AtBeginSection[]{%
 \begin{frame}{Appendix}
